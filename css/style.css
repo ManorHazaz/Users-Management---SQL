@@ -1,0 +1,28 @@
+.container
+{
+    width: 40rem;
+    height: 35rem;
+    margin: 1rem auto;
+    text-align: center;
+    background-color: #303030;
+    color: #ffffff;
+}
+
+.form
+{   
+    padding-top: 2rem;
+}
+
+.text-input
+{
+    display: block;
+    margin: 1rem auto;
+    width: 15rem;
+    padding: 0 1rem;
+}
+
+.not-signedin
+{
+    display: block;
+    margin-top: 1rem;
+}
