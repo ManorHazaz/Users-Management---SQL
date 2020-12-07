@@ -60,10 +60,26 @@ class DB
     }
 
     // creating new user- returning string
-    public function insertNewUser($table, $username, $userpassword, $useremail, $userip )
+    public function insertNewUser($table, $data )
     {
-        $sql = "INSERT INTO $table (username, userpassword,useremail, userip)
-        VALUES ('$username', '$userpassword', '$useremail', '$userip')";
+        $fields = '';
+        $datas = '';
+        foreach($data as $x => $x_value)
+        {
+            // if the first foreach
+            reset($data); 
+            if ($x === key($data))
+            {
+                $fields .=  $x;
+                $datas .= "'" . $x_value . "'";
+            }
+            else
+            {
+                $fields .= "," . $x;
+                $datas .= ", '" . $x_value . "'";
+            }
+        }
+        $sql = "INSERT INTO $table ($fields) VALUES ($datas)";
 
         return $this->executeTheQuery($sql);
     }
