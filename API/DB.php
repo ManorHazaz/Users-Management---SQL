@@ -26,7 +26,8 @@ class DB
         {
         $msg = "record updated successfully";
         } 
-        else {
+        else 
+        {
         $msg = "Error: " . $sql . "<br>" . mysqli_error($this->conn);
         }
 
@@ -114,7 +115,7 @@ class DB
             }
             else
             {
-                $fieldsToChange .= "," . $x . " = '" . $x_value . "'";
+                $fieldsToChange .= " , " . $x . " = '" . $x_value . "'";
             }
         }
 

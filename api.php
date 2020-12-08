@@ -2,47 +2,59 @@
 
     require_once('API/DB.php');
 
-    $action = $_POST['action'];
+    $arr = $_POST;
+    $array = array();
+
+    foreach ($arr as $key => $value) 
+    {
+        switch ($key) 
+        {
+            case 'action':
+                $action = $value;
+            break;
+            
+            case 'table':
+                $table = $value;
+            break;
+
+            case 'field':
+                $field = $value;
+            break;
+
+            case 'data':
+                $data = $value;
+            break;
+            
+            default:
+            $array[$key] = $value;
+        }
+    }
 
     switch ($action) {
-        case openConnection:
+        case 'insert':
             $db = new DB();
-            echo "goood";
+            $msg = $db->insert($table, $array);
+            echo $msg;
             break;
         
-        case closeConnection:
-            $db->closeConection();
+        case 'delete':
+            $db = new DB();
+            $msg = $db->delete($table, $field, $data);
+            echo $msg;
             break;
         
-        case insert:
-            // code to be executed if n=label3;
+        case 'get':
+            $db = new DB();
+            $msg = $db->get($table, $field, $data);
+            print_r($msg);
             break;
         
-        case delete:
-            // code to be executed if n=label3;
-            break;
-        
-        case get:
-            // code to be executed if n=label3;
-            break;
-        
-        case change:
-            // code to be executed if n=label3;
+        case 'update':
+            $db = new DB();
+            $msg = $db->update($table, $field, $data, $array);
+            echo $msg;
             break;
         default:
-        //   code to be executed if n is different from all labels;
+            echo 'diff';
       }
-    // $array = $_POST['params'];
-    // $db = new DB();
-    // $table = $array['table'];
-    // echo $array;
-
-    // var_dump($db->insertNewUser($table, $array));
-    // $db->closeConection();
-    
-
-    // $data = array("username"=>"yarin", "userpassword"=>"yarin", "useremail"=>"class@gmail.com" , "userip"=>"127.1.1.1");
-
-    // $db = new DB();
-
 ?>
