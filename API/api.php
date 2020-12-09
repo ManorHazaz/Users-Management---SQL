@@ -1,7 +1,7 @@
 <?php
 
-    require_once('API/DB.php');
-    require_once('API/HTTP.php');
+    require_once('DB.php');
+    require_once('HTTP.php');
 
     $action = $_GET['action'];
 

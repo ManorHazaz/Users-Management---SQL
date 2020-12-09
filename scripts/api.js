@@ -29,7 +29,7 @@ function establishRequest(action , data)
 // fetch request to the API
 async function fetchRequest( method, action, data)
 {
-	const API_URL = 'api.php';
+	const API_URL = './API/api.php';
 	let url = `${ API_URL }?action=${ action }`;
     let options = { 
 
