@@ -123,6 +123,16 @@ class DB
         
         return $this->query($sql);
     }
+
+
+    // get all the table columns 
+    // use it in order to validate the request before sending request to the sql
+    public function show($table)
+    {
+        $sql = "SHOW COLUMNS FROM $table";
+        
+        return $this->query($queryToArray); 
+    }
 }
 
 
