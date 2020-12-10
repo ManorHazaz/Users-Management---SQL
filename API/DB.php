@@ -94,9 +94,16 @@ class DB
     }
 
     // get all row data by chosen field - returning array
-    public function get($table, $field, $data)
+    public function get($table, $field = '', $data = '')
     {
-        $sql = "SELECT * FROM $table WHERE $field = $data";
+        if($field == '' && $data == '')
+        {
+            $sql = "SELECT * FROM $table";
+        }
+        else
+        {
+            $sql = "SELECT * FROM $table WHERE $field = $data";
+        }
         
         return $this->queryToArray($sql);
     }

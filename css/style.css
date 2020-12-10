@@ -13,16 +13,47 @@
     padding-top: 2rem;
 }
 
+h1
+{
+    font-size: 3rem;
+    color: deeppink;
+}
+
 .text-input
 {
     display: block;
     margin: 1rem auto;
     width: 15rem;
     padding: 0 1rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: pink;
+}
+
+.text-input:focus
+{
+    outline: none;
+}
+
+.btn
+{
+    margin-top: 1.5rem;
+    width: 8rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: deeppink;
 }
 
 .not-signedin
 {
     display: block;
+    color: black;
     margin-top: 1rem;
+}
+
+.not-signedin a
+{
+    color: black;
 }

@@ -4,20 +4,20 @@ function establishRequest(action , data)
 {
 	switch (action) {
 		case 'insert':
-			fetchRequest( 'POST', action, data ).then(res => {console.log(res);});
+			return fetchRequest( 'POST', action, data );
 		break;
 
 		case 'delete':
-			fetchRequest( 'POST', action, data ).then(res => {console.log(res);});
+			return fetchRequest( 'POST', action, data );
 		break;
 
 		case 'get':
-			fetchRequest( 'GET', action, data ).then(res => {console.log(res);});
+			return fetchRequest( 'GET', action, data );
 			
 		break;
 
 		case 'update':
-			fetchRequest( 'POST', action, data ).then(res => {console.log(res);});
+			return fetchRequest( 'POST', action, data );
 		break;
 	
 		default:
