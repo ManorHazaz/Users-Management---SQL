@@ -27,58 +27,36 @@ function jsonToFormData( json )
 }
 
 //order and print the data in table
-function getValueFromPromise(promise) 
-{
-	var array = [];
-	promise.then(function(result) 
-	{
-        Object.keys(result).forEach(function (item) {
-            array[item] = (result[item]); // value
-        });
-	})
-	return array;
-}
-
-
-//order and print the data in table
-function printDataToTable(obj , fields, selector)
+function printPromiseToTable(promise ,fieldsName, fieldsToPrint, selector)
 {
 	var str;
 	str = "<table class='users-data'><tr>";
-	fields.forEach(element => {
+	fieldsName.forEach(element => {
 		str += "<td class='" + element +"'>" + element + " </td>";
 	});
 
-	str += "</tr><tr>"
+	str += "</tr><tr>";
 
-	// console.log(obj);
+	promise.then(function(result)
+    {
+        result.forEach( ( item ) => {
 
-	// for (const key of obj) 
-	// {
-	// 	console.log("key");
-	// }
-	
+			str += "<tr>";
 
-	// obj.forEach( ( item ) => {
+            for( const [ key, value ] of Object.entries( item ) )
+            {
+				if(fieldsToPrint.includes(key))
+				{
+					str += "<td>" + value + "</td>";
+				}
+			}
 
-	// 	console.log( " דגש");
+			str += "</tr>";;
+			
+		});
+		
+		str += "</tr></table>";
 
-	// 	for( const [ k, v ] of Object.entries( item ) )
-	// 	{
-	// 		console.log( " דגש");
-	// 	}
-	
-	// });
-
-	// obj.forEach(element => {
-	// 	console.log(" sada ");
-	// 	element.forEach(el => {
-
-	// 		str += "<td>" + el[fields[0]] + " </td>";
-	// 	})
-	// });
-
-	str += "</tr></table>";
-
-	_(selector).innerHTML = str;
+		_(selector).innerHTML = str;
+    });
 }
