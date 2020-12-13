@@ -60,3 +60,17 @@ function printPromiseToTable(promise ,fieldsName, fieldsToPrint, selector)
 		_(selector).innerHTML = str;
     });
 }
+
+//email form validate
+function validateEmail(email) 
+{
+	var re = /\S+@\S+\.\S+/;
+	return re.test(email);
+}
+
+//username exist in DB
+function userNameAllreadyExist(username)
+{
+	// script here
+	return false;
+}

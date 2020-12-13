@@ -1,6 +1,6 @@
 window.addEventListener('load', (_e) => 
 {
-
+    
 });
 
 // let json = {'action': 'insert' , 'table': 'users' , 'username': 'id' , 'userpassword': '2' , 'useremail': 'id' , 'userip': '2'};

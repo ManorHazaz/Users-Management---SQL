@@ -53,6 +53,7 @@
 
             $db = new DB();
             $msg = $db->insert($table, $array);
+            $db->close();
             return HTTP::create('201' , $msg);
             break;
         
@@ -67,6 +68,7 @@
 
             $db = new DB();
             $msg = $db->delete($table, $field, $data);
+            $db->close();
             return HTTP::create('200' , $msg);
             break;
         
@@ -83,6 +85,7 @@
             {
                 $db = new DB();
                 $msg = $db->get($table);
+                $db->close();
                 return HTTP::create('200' , $msg);
                 break;
             }
@@ -95,6 +98,7 @@
 
             $db = new DB();
             $msg = $db->get($table, $field, $data);
+            $db->close();
             return HTTP::create('200' , $msg);
             break;
         
@@ -109,6 +113,7 @@
 
             $db = new DB();
             $msg = $db->update($table, $field, $data, $array);
+            $db->close();
             return HTTP::create('200' , $msg);
             break;
             

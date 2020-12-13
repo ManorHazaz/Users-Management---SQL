@@ -50,8 +50,6 @@ async function fetchRequest( method, action, data)
 	{
 		options.body = jsonToFormData( data );
 	}
-
-
-	return fetch( url, options ).then( res => res.json());
 	
+	return fetch( url, options ).then( res => res.json());
 }
