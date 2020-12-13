@@ -6,7 +6,7 @@
     $action = $_GET['action'];
 
     // "GETTING" and "POSTTING" the data
-    if($action == 'get')
+    if($action == 'get' || $action == 'login' )
     {
         $arr = array();
         parse_str($_SERVER['QUERY_STRING'], $arr);
@@ -99,6 +99,43 @@
             $db = new DB();
             $msg = $db->get($table, $field, $data);
             $db->close();
+            return HTTP::create('200' , $msg);
+            break;
+
+        case 'login':
+
+            // get all or specific row get 
+            if(empty($table)) 
+            {
+                $msg = "The server could not understand the request due to invalid syntax.";
+                return HTTP::create('400' , $msg);
+                break;
+            }
+            foreach ($array as $key => $value) 
+            {
+                switch ($key)
+                {
+                    case 'username':
+                        $username = $value;
+                    break;
+                    
+                    case 'password':
+                        $password = $value;
+                    break;
+
+                    default:
+                    $array[$key] = $value;
+                    break;
+                }
+            }
+
+            $db = new DB();
+            $msg = $db->login($table, $username, $password);
+            $db->close();
+            if($msg == 'error')
+            {
+                return HTTP::create('404' , $msg);
+            }
             return HTTP::create('200' , $msg);
             break;
         

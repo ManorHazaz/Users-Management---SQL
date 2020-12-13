@@ -13,7 +13,10 @@ function establishRequest(action , data)
 
 		case 'get':
 			return fetchRequest( 'GET', action, data );
-			
+		break;
+
+		case 'login':
+			return fetchRequest( 'GET', action, data );
 		break;
 
 		case 'update':
@@ -50,6 +53,10 @@ async function fetchRequest( method, action, data)
 	{
 		options.body = jsonToFormData( data );
 	}
-	
+
+	if(action == 'login')
+	{
+		return fetch( url, options ).then( res => res);
+	}
 	return fetch( url, options ).then( res => res.json());
 }

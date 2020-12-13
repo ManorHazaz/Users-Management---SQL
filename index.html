@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/toast.css" />
     <title>User Management</title>
 </head>
 <body>
     <div class="container">
-        <form method="post" class="form" action="#"> 
+        <form class="form"> 
             <h1> sign in </h1>
-            <input type="text" placeholder="Username"  class="text-input" name="username"> 
-            <input type="text" placeholder="Password" class="text-input" name="userpassword">
+            <input required id="user-name" type="text" class="text-input" placeholder="User Name" />
+            <input required id="password" type="password" class="text-input" placeholder="Password" />
             
             <input type="submit" class="btn" name="submit" value="submit">
         </form>
@@ -22,5 +23,7 @@
 <script src="scripts/functions.js"></script>
 <script src="scripts/api.js"></script>
 <script src="scripts/main.js"></script>
+<script src="scripts/toast.js"></script>
+<script src="scripts/pages/index.js"></script>
 
 </html>

@@ -24,14 +24,16 @@ class DB
     {
         if (mysqli_query($this->conn, $sql)) 
         {
-        $msg = "record updated successfully";
+            $msg = 'record updated successfully';
         } 
         else 
         {
-        $msg = "Error: " . $sql . "<br>" . mysqli_error($this->conn);
+            $msg = 'error';
         }
 
         return $msg;
+
+        // return (mysqli_query($this->conn, $sql)); 
     }
     
     //execute the query to array and return the array - returning the array
@@ -106,6 +108,13 @@ class DB
         }
         
         return $this->queryToArray($sql);
+    }
+
+    public function login($table, $username, $password)
+    {
+        $sql = "SELECT * FROM $table WHERE username = $username AND userpassword = $password";
+
+        return $this->query($sql);
     }
 
     // change data by chosen field - returning string
