@@ -19,6 +19,10 @@ function establishRequest(action , data)
 			return fetchRequest( 'GET', action, data );
 		break;
 
+		case 'isExist':
+			return fetchRequest( 'GET', action, data );
+		break;
+
 		case 'update':
 			return fetchRequest( 'POST', action, data );
 		break;
@@ -54,7 +58,7 @@ async function fetchRequest( method, action, data)
 		options.body = jsonToFormData( data );
 	}
 
-	if(action == 'login')
+	if(action == 'login' || action == 'isExist')
 	{
 		return fetch( url, options ).then( res => res);
 	}

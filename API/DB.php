@@ -35,22 +35,29 @@ class DB
 
         // return (mysqli_query($this->conn, $sql)); 
     }
+
+    //
+    private function queryToBool($sql)
+    {
+        $result = mysqli_query($this->conn, $sql);
+        if (mysqli_num_rows($result)) 
+        {
+            return true;
+        }
+        return false;
+    }
     
     //execute the query to array and return the array - returning the array
     private function queryToArray($sql)
     {
         $result = mysqli_query($this->conn, $sql);
         $arr = array();
-        if (mysqli_num_rows($result) > 0) 
+        if (mysqli_num_rows($result) > 0 ) 
         {
             while($row = mysqli_fetch_assoc($result))
             {
                 array_push($arr,$row);
             }
-            return $arr;
-        }
-        else
-        {
             return $arr;
         }
     }
@@ -90,9 +97,17 @@ class DB
     // delete row - returning string
     public function delete($table, $field, $data)
     {
-        $sql = " DELETE FROM $table WHERE $field = $data";
+        $sql = " DELETE FROM $table WHERE $field = '$data'";
 
         return $this->query($sql);
+    }
+
+    // get all row data by chosen field - returning array
+    public function isExist($table, $field, $data)
+    {
+        $sql = "SELECT * FROM $table WHERE $field = '$data' LIMIT 1";
+        
+        return $this->queryToBool($sql);
     }
 
     // get all row data by chosen field - returning array
@@ -104,7 +119,7 @@ class DB
         }
         else
         {
-            $sql = "SELECT * FROM $table WHERE $field = $data";
+            $sql = "SELECT * FROM $table WHERE $field = '$data'";
         }
         
         return $this->queryToArray($sql);
@@ -112,7 +127,7 @@ class DB
 
     public function login($table, $username, $password)
     {
-        $sql = "SELECT * FROM $table WHERE username = $username AND userpassword = $password";
+        $sql = "SELECT * FROM $table WHERE username = '$username' AND userpassword = '$password'";
 
         return $this->query($sql);
     }
@@ -135,7 +150,7 @@ class DB
             }
         }
 
-        $sql = "UPDATE $table SET $fieldsToChange WHERE $field = $data";;
+        $sql = "UPDATE $table SET $fieldsToChange WHERE $field = '$data'";;
         
         return $this->query($sql);
     }

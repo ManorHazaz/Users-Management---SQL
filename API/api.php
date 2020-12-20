@@ -6,7 +6,7 @@
     $action = $_GET['action'];
 
     // "GETTING" and "POSTTING" the data
-    if($action == 'get' || $action == 'login' )
+    if($action == 'get' || $action == 'login' || $action == 'isExist' )
     {
         $arr = array();
         parse_str($_SERVER['QUERY_STRING'], $arr);
@@ -137,6 +137,27 @@
                 return HTTP::create('404' , $msg);
             }
             return HTTP::create('200' , $msg);
+            break;
+
+        case 'isExist':
+
+            // get all or specific row get 
+            if(empty($table)) 
+            {
+                $msg = "The server could not understand the request due to invalid syntax.";
+                return HTTP::create('400' , $msg);
+                break;
+            }
+
+            $db = new DB();
+            $msg = $db->isExist($table, $field, $data);
+            $db->close();
+            var_dump($msg);
+            if(!$msg)
+            {
+                return HTTP::create('200' , 'not exist');
+            }
+            return HTTP::create('302' , 'exist');
             break;
         
         case 'update':

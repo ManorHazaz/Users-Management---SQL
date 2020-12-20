@@ -18,6 +18,7 @@ window.addEventListener('submit', (e) =>
         if(result['status'] == '200')
         {
             creatToast( 3000, 'success', 'Login successfully! You are being redirected');
+            sessionStorage.setItem('online', userName);
 
             setTimeout( () => { window.location = './data.html'; }, 3000 );
         }

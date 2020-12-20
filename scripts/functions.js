@@ -68,9 +68,18 @@ function validateEmail(email)
 	return re.test(email);
 }
 
-//username exist in DB
-function userNameAllreadyExist(username)
+//data exist in DB
+async function isExist( field , data )
 {
-	// script here
-	return false;
+	let json = {'action': 'isExist' , 'table': 'users' ,'field': field , 'data': data };
+    let action = json['action'];
+    delete json.action;
+	let promise = establishRequest(action,json);
+	let flag;
+	
+	await promise.then(function(result)
+    {
+		flag = (result['status'] == '302');
+	});
+	return flag;
 }
