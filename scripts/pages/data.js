@@ -9,12 +9,12 @@ let action = json['action'];
 delete json.action;
 let promise = establishRequest(action,json);
 
-let fieldsName = ['name', 'email', 'created-at'];
+let fieldsName = ['Name', 'Email', 'Created-at'];
 let fieldsToPrint = ['username', 'useremail', 'usercreatedat'];
 
 printPromiseToTable( promise, fieldsName, fieldsToPrint, '.data-container' );
 
-// setInterval( () => { printPromiseToTable( promise, fieldsName, fieldsToPrint, '.data-container' ); }, 3000 );
+setInterval( () => { printPromiseToTable( promise, fieldsName, fieldsToPrint, '.data-container' ); }, 3000 );
 
 
 _('#logout').addEventListener('click', e =>

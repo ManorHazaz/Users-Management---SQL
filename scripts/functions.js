@@ -40,10 +40,11 @@ function printPromiseToTable(promise ,fieldsName, fieldsToPrint, selector)
 
 	str = "<table class='users-data'><thead><tr>";
 	fieldsName.forEach(element => {
-		str += "<td class='" + element +"'>" + element + " </td>";
+		str += "<td class='" + element.toLowerCase() +"'>" + element + " </td>";
 	});
 
-	str += "</tr></thead><tbody><tr>";
+
+	str += "</tr><tr><td class='last-update' colspan='3'>Last update: " + time + "</td></tr></thead><tbody><tr>";
 
 	promise.then(function(result)
     {
@@ -63,7 +64,7 @@ function printPromiseToTable(promise ,fieldsName, fieldsToPrint, selector)
 			
 		});
 		
-		str += "<tr><td class='last-update' colspan='3'>Last update: " + time + "</td></tr></tr></tbody></table>";
+		str += "</tbody></table>";
 
 		_(selector).innerHTML = str;
     });
