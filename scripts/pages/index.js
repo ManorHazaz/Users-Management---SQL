@@ -1,18 +1,25 @@
+
+// login button action
 window.addEventListener('submit', (e) =>
 {
     e.preventDefault();
 
+    // values from the form
     let userName = _( '#user-name' );
     let password = _( '#password' );
 
     userName = userName.value.trim();
     password = password.value.trim();
    
+    // values for fetch request
     let json = {'action': 'login' , 'table': 'users' ,'username': userName , 'password': password };
     let action = json['action'];
     delete json.action;
+
+    // commit fetch request
     let promise = establishRequest(action,json);
 
+    // check the response from the fetch request
     promise.then(function(result)
     {
         if(result['status'] == '200')

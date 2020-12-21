@@ -1,8 +1,9 @@
-
+// register button action
 window.addEventListener('submit', async (e) =>
 {
     e.preventDefault();
 
+    // values from the form
     let email             = _( '#email' );
     let userName          = _( '#user-name' );
     let password          = _( '#password' );
@@ -13,35 +14,42 @@ window.addEventListener('submit', async (e) =>
     password = password.value.trim();
     passwordConfirm = passwordConfirm.value.trim();
 
+    // validate email
     if(!validateEmail(email))
     {
         creatToast(3000, 'error', 'please correct your email to the correct form' );
         return;
     }
 
+    // if username exist in DB
     if(await isExist('username',userName))
     {
         creatToast(3000, 'error', 'The user name is allready exist' );
         return;
     }
 
+    // if email exist in DB
     if(await isExist('useremail',email))
     {
         creatToast(3000, 'error', 'The email is allready exist' );
         return;
     }
 
+    // values for fetch request
     let json = {'action': 'insert' , 'table': 'users' , 'username': userName , 'userpassword': password , 'useremail': email };
     let action = json['action'];
     delete json.action;
+
+    // commit fetch request
     let promise = establishRequest(action,json);
 
+    // check the response from the fetch request - if approved redirect
     promise.then(function(result)
     {
         if(result == 'record updated successfully')
         {
             creatToast( 5000, 'success', 'Created successfully! You are being redirected');
-            setTimeout( () => { window.location = './'; }, 5000 );
+            setTimeout( () => { window.location = './'; }, 3000 );
         }
     });
 

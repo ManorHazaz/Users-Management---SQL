@@ -249,3 +249,11 @@ tbody
         width: 14rem;
     }
 }
+
+@media only screen and (max-width: 400px) 
+{
+    .container
+    {
+        width: 21rem;
+    }
+}

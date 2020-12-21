@@ -44,6 +44,7 @@
     switch ($action) {
         case 'insert':
 
+            // insert new row in DB by the data the user provide
             if(empty($table) || empty($array))
             {
                 $msg = "The server could not understand the request due to invalid syntax.";
@@ -59,6 +60,7 @@
         
         case 'delete':
 
+            // delete row in DB by the data the user provide
             if(empty($table) || empty($field) || empty($data))
             {
                 $msg = "The server could not understand the request due to invalid syntax.";
@@ -141,7 +143,7 @@
 
         case 'isExist':
 
-            // get all or specific row get 
+            // checking if exist in DB
             if(empty($table)) 
             {
                 $msg = "The server could not understand the request due to invalid syntax.";
@@ -162,6 +164,7 @@
         
         case 'update':
 
+            // update row in DB by the data the user provide
             if(empty($table) || empty($field) || empty($data) || empty($array))
             {
                 $msg = "The server could not understand the request due to invalid syntax.";

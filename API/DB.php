@@ -36,7 +36,7 @@ class DB
         // return (mysqli_query($this->conn, $sql)); 
     }
 
-    //
+    //execute the query and return boolean if exist
     private function queryToBool($sql)
     {
         $result = mysqli_query($this->conn, $sql);
@@ -102,7 +102,7 @@ class DB
         return $this->query($sql);
     }
 
-    // get all row data by chosen field - returning array
+    // cheack if exist in DB - returning boolean
     public function isExist($table, $field, $data)
     {
         $sql = "SELECT * FROM $table WHERE $field = '$data' LIMIT 1";
@@ -125,6 +125,7 @@ class DB
         return $this->queryToArray($sql);
     }
 
+    // cheack if username and password match
     public function login($table, $username, $password)
     {
         $sql = "SELECT * FROM $table WHERE username = '$username' AND userpassword = '$password'";
@@ -154,7 +155,6 @@ class DB
         
         return $this->query($sql);
     }
-
 
     // get all the table columns 
     // use it in order to validate the request before sending request to the sql
