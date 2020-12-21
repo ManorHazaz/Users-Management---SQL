@@ -4,21 +4,18 @@ if(!sessionStorage.getItem('online'))
     window.location = './';
 }
 
-window.addEventListener('load', (_e) => 
-{
+let json = {'action': 'get' , 'table': 'users' };
+let action = json['action'];
+delete json.action;
+let promise = establishRequest(action,json);
 
-    let json = {'action': 'get' , 'table': 'users' };
-    let action = json['action'];
-    delete json.action;
-    let promise = establishRequest(action,json);
+let fieldsName = ['name', 'email', 'created-at'];
+let fieldsToPrint = ['username', 'useremail', 'usercreatedat'];
 
-    let fieldsName = ['Name', 'Email', 'Created At'];
-    let fieldsToPrint = ['username', 'useremail', 'usercreatedat'];
-    
+printPromiseToTable( promise, fieldsName, fieldsToPrint, '.data-container' );
 
-    printPromiseToTable( promise, fieldsName, fieldsToPrint, '.data-container' );
+// setInterval( () => { printPromiseToTable( promise, fieldsName, fieldsToPrint, '.data-container' ); }, 3000 );
 
-});
 
 _('#logout').addEventListener('click', e =>
 {

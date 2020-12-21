@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body
+{
+    font-family: 'Open Sans', sans-serif;
+}
 .container
 {
     width: 40rem;
@@ -6,6 +12,7 @@
     text-align: center;
     background-color: #303030;
     color: #ffffff;
+    border-radius: 1rem;
 }
 
 .form
@@ -17,6 +24,7 @@ h1
 {
     font-size: 3rem;
     color: deeppink;
+    padding-top: 2rem;
 }
 
 .text-input
@@ -39,7 +47,7 @@ h1
 .btn
 {
     margin-top: 1.5rem;
-    width: 8rem;
+    width: 11rem;
     height: 2rem;
     border-radius: 0.5rem;
     border: none;
@@ -56,4 +64,50 @@ h1
 .not-signedin a
 {
     color: black;
+}
+
+.users-data
+{
+    margin: 1rem auto;
+    border-collapse: collapse;
+    max-width: 100%;
+    color: black;
+    border-radius: 1rem;
+}
+
+.users-data .name
+{
+    width: 11rem;
+}
+
+.users-data .email
+{
+    width: 11rem;
+}
+
+.users-data .created-at
+{
+    width: 11rem;
+}
+
+.users-data tr:first-child
+{
+    font-size: 1.5rem;
+    font-weight: 600;
+    background-color: deeppink;
+}
+
+.users-data tr:not(:first-child)
+{
+    background-color: pink;
+}
+
+.users-data td
+{
+    height: 2rem;
+}
+
+.users-data .last-update
+{
+    background-color: deeppink;
 }

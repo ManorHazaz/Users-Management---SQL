@@ -29,13 +29,21 @@ function jsonToFormData( json )
 //order and print the data in table
 function printPromiseToTable(promise ,fieldsName, fieldsToPrint, selector)
 {
+	console.log("print");
 	var str;
-	str = "<table class='users-data'><tr>";
+	var time = new Date().toLocaleTimeString('en-US', 
+	{ 	hour12: false, 
+		hour: "numeric", 
+		minute: "numeric",
+		second: "numeric"
+	});
+
+	str = "<table class='users-data'><thead><tr>";
 	fieldsName.forEach(element => {
 		str += "<td class='" + element +"'>" + element + " </td>";
 	});
 
-	str += "</tr><tr>";
+	str += "</tr></thead><tbody><tr>";
 
 	promise.then(function(result)
     {
@@ -55,7 +63,7 @@ function printPromiseToTable(promise ,fieldsName, fieldsToPrint, selector)
 			
 		});
 		
-		str += "</tr></table>";
+		str += "<tr><td class='last-update' colspan='3'>Last update: " + time + "</td></tr></tr></tbody></table>";
 
 		_(selector).innerHTML = str;
     });
