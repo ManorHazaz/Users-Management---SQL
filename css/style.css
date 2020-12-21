@@ -12,10 +12,11 @@ body
 {
     font-family: 'Open Sans', sans-serif;
 }
+
 .container
 {
     width: 60rem;
-    height: 35rem;
+    height: 40rem;
     margin: 1rem auto;
     text-align: center;
     background-color: #303030;
@@ -96,7 +97,7 @@ thead, tbody
 
 tbody 
 {
-    height: 13vw;
+    height: 21rem;
     overflow-y: auto;    /* Trigger vertical scroll    */
     overflow-x: hidden;  /* Hide the horizontal scroll */
 }
@@ -130,12 +131,121 @@ tbody
     background-color: var(--main);
 }
 
-.loader
+@media only screen and (max-width: 800px) 
 {
-    width: 1rem;
-    height: 1rem;
-    border: none;
-    border-right: var(--textcolor);
-    transition: transform 1s ease-in-out;
-    transform: rotate(90deg);
+    .container
+    {
+        width: 46rem;
+        height: 62rem;
+        margin: 1rem auto;
+    }
+    .form
+    {   
+        padding-top: 2rem;
+    }
+
+    h1
+    {
+        font-size: 3rem;
+        color: var(--main);
+        padding-top: 2rem;
+    }
+
+    .text-input
+    {
+        margin: 1rem auto;
+        width: 15rem;
+        padding: 0 1rem;
+        height: 2rem;
+    }
+
+    .btn
+    {
+        margin-top: 1.5rem;
+        width: 11rem;
+        height: 2rem;
+    }
+
+    .logout 
+    {
+        margin-top: 0;
+    }
+
+    .users-data
+    {
+        max-width: 95%;
+    }
+    
+    tbody 
+    {
+        height: 43rem;
+    }
+}
+
+
+
+@media only screen and (max-width: 600px) 
+{
+    .container
+    {
+        width: 25rem;
+        height: 44rem;
+        margin: 1rem auto;
+    }
+
+    .form
+    {   
+        padding-top: 2rem;
+    }
+
+    h1
+    {
+        font-size: 3rem;
+        color: var(--main);
+        padding-top: 2rem;
+    }
+
+    .text-input
+    {
+        margin: 1rem auto;
+        width: 15rem;
+        padding: 0 1rem;
+        height: 2rem;
+    }
+
+    .btn
+    {
+        margin-top: 1.5rem;
+        width: 11rem;
+        height: 2rem;
+    }
+
+    .logout 
+    {
+        margin-top: 0;
+    }
+
+    .users-data
+    {
+        max-width: 95%;
+    }
+    
+    tbody 
+    {
+        height: 26rem;
+    }
+
+    .users-data thead td
+    {
+        font-size: 1rem;
+        height: 2rem;
+        width: 14rem;
+    }
+
+    .users-data tbody td
+    {
+        font-size: 0.7rem;
+        height: 2rem;
+        width: 14rem;
+    }
 }
