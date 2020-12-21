@@ -29,7 +29,6 @@ function jsonToFormData( json )
 //order and print the data in table
 function printPromiseToTable(promise ,fieldsName, fieldsToPrint, selector)
 {
-	console.log("print");
 	var str;
 	var time = new Date().toLocaleTimeString('en-US', 
 	{ 	hour12: false, 
