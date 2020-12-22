@@ -20,7 +20,7 @@ let fieldsToPrint = ['username', 'useremail', 'usercreatedat'];
 printPromiseToTable( promise, fieldsName, fieldsToPrint, '.data-container' );
 
 // reload every 3 sec
-// setInterval( () => { printPromiseToTable( promise, fieldsName, fieldsToPrint, '.data-container' ); }, 3000 );
+setInterval( () => { printPromiseToTable( promise, fieldsName, fieldsToPrint, '.data-container' ); }, 3000 );
 
 // logout user
 _('#logout').addEventListener('click', e =>
