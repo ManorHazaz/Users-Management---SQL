@@ -16,7 +16,7 @@ body
 .container
 {
     width: 60rem;
-    height: 40rem;
+    height: 36rem;
     margin: 1rem auto;
     text-align: center;
     background-color: #303030;
@@ -97,9 +97,9 @@ thead, tbody
 
 tbody 
 {
-    height: 21rem;
-    overflow-y: auto;    /* Trigger vertical scroll    */
-    overflow-x: hidden;  /* Hide the horizontal scroll */
+    height: 16rem;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .users-data thead td

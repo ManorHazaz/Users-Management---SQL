@@ -3,10 +3,10 @@
 class DB
 {
     private $conn;
-    private $server = 'localhost';
-    private $username = 'root';
-    private $password = '';
-    private $db = 'users';
+    private $server = 'sql106.epizy.com';
+    private $username = 'epiz_27522808';
+    private $password = '4QY6c4lIDlmom2';
+    private $db = 'epiz_27522808_infinityData';
     
     // open connection with DB - returning string
     public function __construct()
