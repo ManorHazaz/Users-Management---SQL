@@ -134,11 +134,11 @@
             $db = new DB();
             $msg = $db->login($table, $username, $password);
             $db->close();
-            if($msg == 'error')
+            if(!$msg)
             {
-                return HTTP::create('404' , $msg);
+                return HTTP::create('404' , 'not exist');
             }
-            return HTTP::create('200' , $msg);
+            return HTTP::create('302' , 'exist');
             break;
 
         case 'isExist':

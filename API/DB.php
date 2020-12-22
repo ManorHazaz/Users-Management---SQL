@@ -130,7 +130,7 @@ class DB
     {
         $sql = "SELECT * FROM $table WHERE username = '$username' AND userpassword = '$password'";
 
-        return $this->query($sql);
+        return $this->queryToBool($sql);
     }
 
     // change data by chosen field - returning string

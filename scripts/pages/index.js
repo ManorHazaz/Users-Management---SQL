@@ -22,7 +22,7 @@ window.addEventListener('submit', (e) =>
     // check the response from the fetch request
     promise.then(function(result)
     {
-        if(result['status'] == '200')
+        if(result['status'] == '302')
         {
             creatToast( 3000, 'success', 'Login successfully! You are being redirected');
             sessionStorage.setItem('online', userName);
