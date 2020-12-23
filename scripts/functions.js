@@ -100,7 +100,9 @@ function specialChars(data)
 	{
 		if (iChars.indexOf(data.charAt(i)) != -1) 
 		{
-			return false;
+			return true;
 		}
 	}
+
+	return false;
 }

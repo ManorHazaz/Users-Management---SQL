@@ -35,24 +35,21 @@ window.addEventListener('submit', async (e) =>
         return;
     }
 
+    // check if passwoed and password confirm are the same
     if( password != passwordConfirm )
     {
         creatToast(3000, 'error', 'The passwords not match' );
         return;
     }
 
-    if(specialChars(email))
-    {
-        creatToast(3000, 'error', 'Special Chars are not allowd in email' );
-        return;
-    }
-
+    // check for speical chars in username
     if(specialChars(userName))
     {
         creatToast(3000, 'error', 'Special Chars are not allowd in user name' );
         return;
     }
 
+    // check for speical chars in password
     if(specialChars(password))
     {
         creatToast(3000, 'error', 'Special Chars are not allowd in password' );
