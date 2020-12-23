@@ -35,6 +35,12 @@ window.addEventListener('submit', async (e) =>
         return;
     }
 
+    if( password != passwordConfirm )
+    {
+        creatToast(3000, 'error', 'The passwords not match' );
+        return;
+    }
+
     // values for fetch request
     let json = {'action': 'insert' , 'table': 'users' , 'username': userName , 'userpassword': password , 'useremail': email };
     let action = json['action'];
