@@ -1,3 +1,4 @@
+const iChars = "!@#$%^&*()+=-[]\\\';,./{}|\":<>?";
 
 // get one element by CSS selector
 function _( selector )
@@ -90,4 +91,16 @@ async function isExist( field , data )
 		flag = (result['status'] == '302');
 	});
 	return flag;
+}
+
+// checking for special chars
+function specialChars(data)
+{
+	for (var i = 0; i < data.length; i++) 
+	{
+		if (iChars.indexOf(data.charAt(i)) != -1) 
+		{
+			return false;
+		}
+	}
 }

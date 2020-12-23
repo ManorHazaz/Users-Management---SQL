@@ -41,6 +41,24 @@ window.addEventListener('submit', async (e) =>
         return;
     }
 
+    if(specialChars(email))
+    {
+        creatToast(3000, 'error', 'Special Chars are not allowd in email' );
+        return;
+    }
+
+    if(specialChars(userName))
+    {
+        creatToast(3000, 'error', 'Special Chars are not allowd in user name' );
+        return;
+    }
+
+    if(specialChars(password))
+    {
+        creatToast(3000, 'error', 'Special Chars are not allowd in password' );
+        return;
+    }
+    
     // values for fetch request
     let json = {'action': 'insert' , 'table': 'users' , 'username': userName , 'userpassword': password , 'useremail': email };
     let action = json['action'];
