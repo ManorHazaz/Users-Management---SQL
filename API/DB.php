@@ -115,11 +115,11 @@ class DB
     {
         if($field == '' && $data == '')
         {
-            $sql = "SELECT * FROM $table";
+            $sql = "SELECT `username` , `usercreatedat` , `useremail` FROM $table";
         }
         else
         {
-            $sql = "SELECT * FROM $table WHERE $field = '$data'";
+            $sql = "SELECT `username` , `usercreatedat` , `useremail` FROM $table WHERE $field = '$data'";
         }
         
         return $this->queryToArray($sql);
