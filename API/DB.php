@@ -3,10 +3,10 @@
 class DB
 {
     private $conn;
-    private $server = 'localhost';
-    private $username = 'root';
-    private $password = '';
-    private $db = 'users';
+    private $server = 'localhost'; 
+    private $username = 'root'; 
+    private $password = '';  
+    private $db = 'users'; 
     
     // open connection with DB - returning string
     public function __construct()
