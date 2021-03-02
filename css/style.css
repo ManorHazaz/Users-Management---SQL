@@ -2,51 +2,53 @@
 
 :root 
 {
-    --main: #f02d95;
-    --secondary: #e9a8b3;
+    --primary-color: #FE5454;
+    --light-primary-color: rgba(254, 84, 84, 0.4);
+    --secondary-color: #F7F8F9;
     --textcolor: #000000;
 }
 
-  
-body
+* 
+{ 
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+     box-sizing: border-box; 
+}
+
+html
 {
     font-family: 'Open Sans', sans-serif;
 }
-
-.container
+  
+body
 {
-    width: 60rem;
-    height: 36rem;
-    margin: 1rem auto;
-    text-align: center;
-    background-color: #303030;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4);
-    display: flex;
-    flex-direction: column;
-}
-
-.form
-{   
-    padding-top: 2rem;
+    margin: 0;
+    padding: 0;
+    background-color: var( --secondary-color );
 }
 
 h1
 {
-    font-size: 3rem;
-    color: var(--main);
-    padding-top: 2rem;
+    font-weight: 900;
+    font-size: 10vmin;
+    color: var( --primary-color );
+    margin: 2vmin;
+}
+
+a
+{
+    color: var( --primary-color );
 }
 
 .text-input
 {
-    display: block;
-    margin: 1rem auto;
-    width: 15rem;
-    padding: 0 1rem;
-    height: 2rem;
-    border-radius: 0.5rem;
-    border: none;
-    background-color: var(--secondary);
+    border: 1px solid var( --primary-color );
+    border-radius: 1vmin;
+    padding: 2vmin;
+    width: 45vmin;
+    background-color: none;
+    color: var( --primary-color );
+    box-shadow: 0 0 2px 0 var( --primary-color );
 }
 
 .text-input:focus
@@ -56,204 +58,171 @@ h1
 
 .btn
 {
-    margin: 0 auto;
-    margin-top: 1.5rem;
-    width: 11rem;
-    height: 2rem;
-    border-radius: 0.5rem;
-    border: none;
-    background-color: var(--main);
+    border: 1px solid var( --primary-color );
+    border-radius: 1vmin;
+    padding: 2vmin;
+    width: 25vmin;
+    background-color: var( --primary-color );
+    box-shadow: 0 0 2px 0 var( --primary-color );
+    transition: 0.3s;
 }
 
-.logout
+.btn:focus
 {
-    margin-top: 0;
+    outline: none;
 }
 
-.not-signedin
+.btn:hover
 {
-    display: block;
-    color: var(--textcolor);
-    margin-top: 1rem;
+    transform: translateY( -1vmin );
 }
 
-.not-signedin a
+.container
 {
-    color: var(--textcolor);
+    position: relative;
+	height: 90vh;
+    width: 85vw;
+    margin: 5vh auto;
+    padding: 8vmin;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    align-self: center;
+    overflow: hidden;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.7);
+    border-radius: 1vmin;
+}
+
+.column-container
+{
+    flex-direction: column;
+}
+
+.form
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+}
+
+.side-img
+{
+    width: 50%;
+}
+
+.change-form
+{
+    font-weight: 600;
+}
+
+/* index page */
+
+.login-form
+{
+    height: 75%;
+}
+
+/* register page */
+
+.register-form
+{
+    height: 95%;
+}
+
+/* data page */
+
+.users
+{
+    height: 50vh;
+    overflow: auto;
+    width: 80%;
+    margin-top: 2vmin;
+    column-width: 33%;
 }
 
 .users-data
 {
-    margin: 1rem auto;
+    width: 100%;
     border-collapse: collapse;
-    max-width: 100%;
-    color: var(--textcolor);
-}
-
-thead, tbody 
-{ 
-    display: block; 
-}
-
-tbody 
-{
-    height: 16rem;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-.users-data thead td
-{
-    width: 14rem;
-}
-
-
-.users-data tr:first-child
-{
-    font-size: 1.5rem;
-    font-weight: 600;
-    background-color: var(--main);
-}
-
-.users-data tr:not(:first-child)
-{
-    background-color: var(--secondary);
 }
 
 .users-data td
 {
-    height: 2rem;
-    width: 14rem;
+    padding: 1vmin;
 }
 
-.users-data .last-update
+.users-data thead
 {
-    background-color: var(--main);
+    background-color: var( --primary-color );
 }
 
-@media only screen and (max-width: 800px) 
+.users-data thead .last-update
 {
-    .container
+    background-color: var( --secondary-color );
+    text-align: center;
+}
+
+.users-data tbody tr:nth-child( 2n )
+{
+    background-color: var( --light-primary-color );
+}
+
+@media screen and (max-width: 600px) 
+{
+    .column-container
     {
-        width: 46rem;
-        height: 62rem;
-        margin: 1rem auto;
-    }
-    .form
-    {   
-        padding-top: 2rem;
+        width: 95vw;
     }
 
     h1
     {
-        font-size: 3rem;
-        color: var(--main);
-        padding-top: 2rem;
+        font-size: 15vmin;
     }
 
     .text-input
     {
-        margin: 1rem auto;
-        width: 15rem;
-        padding: 0 1rem;
-        height: 2rem;
+        width: 85%;
     }
 
     .btn
     {
-        margin-top: 1.5rem;
-        width: 11rem;
-        height: 2rem;
-    }
-
-    .logout 
-    {
-        margin-top: 0;
-    }
-
-    .users-data
-    {
-        max-width: 95%;
-    }
-    
-    tbody 
-    {
-        height: 43rem;
-    }
-}
-
-
-
-@media only screen and (max-width: 600px) 
-{
-    .container
-    {
-        width: 25rem;
-        height: 44rem;
-        margin: 1rem auto;
+        width: 40vmin;
     }
 
     .form
-    {   
-        padding-top: 2rem;
+    {
+        width: 100%;
+        height: 50%;
     }
 
-    h1
+    .side-img
     {
-        font-size: 3rem;
-        color: var(--main);
-        padding-top: 2rem;
+        position: absolute;
+        inset: 0;
+        opacity: 0.1;
+        z-index: -1;
     }
 
-    .text-input
+    .change-form
     {
-        margin: 1rem auto;
-        width: 15rem;
-        padding: 0 1rem;
-        height: 2rem;
+        font-size: 4vmin;
     }
 
-    .btn
-    {
-        margin-top: 1.5rem;
-        width: 11rem;
-        height: 2rem;
-    }
-
-    .logout 
-    {
-        margin-top: 0;
-    }
-
-    .users-data
-    {
-        max-width: 95%;
-    }
+    /* register page */
     
-    tbody 
+    .register-form
     {
-        height: 26rem;
+        height: 65%;
     }
 
-    .users-data thead td
+    /* data page */
+    .users
     {
-        font-size: 1rem;
-        height: 2rem;
-        width: 14rem;
+        width: 100%;
+        height: 65vh;
     }
 
-    .users-data tbody td
-    {
-        font-size: 0.7rem;
-        height: 2rem;
-        width: 14rem;
-    }
-}
-
-@media only screen and (max-width: 400px) 
-{
-    .container
-    {
-        width: 21rem;
-    }
 }

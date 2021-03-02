@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+:root 
+{
+    --main: #f02d95;
+    --secondary: #e9a8b3;
+    --textcolor: #000000;
+}
+
+  
+body
+{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container
+{
+    width: 60rem;
+    height: 36rem;
+    margin: 1rem auto;
+    text-align: center;
+    background-color: #303030;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+}
+
+.form
+{   
+    padding-top: 2rem;
+}
+
+h1
+{
+    font-size: 3rem;
+    color: var(--main);
+    padding-top: 2rem;
+}
+
+.text-input
+{
+    display: block;
+    margin: 1rem auto;
+    width: 15rem;
+    padding: 0 1rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: var(--secondary);
+}
+
+.text-input:focus
+{
+    outline: none;
+}
+
+.btn
+{
+    margin: 0 auto;
+    margin-top: 1.5rem;
+    width: 11rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: var(--main);
+}
+
+.logout
+{
+    margin-top: 0;
+}
+
+.not-signedin
+{
+    display: block;
+    color: var(--textcolor);
+    margin-top: 1rem;
+}
+
+.not-signedin a
+{
+    color: var(--textcolor);
+}
+
+.users-data
+{
+    margin: 1rem auto;
+    border-collapse: collapse;
+    max-width: 100%;
+    color: var(--textcolor);
+}
+
+thead, tbody 
+{ 
+    display: block; 
+}
+
+tbody 
+{
+    height: 16rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.users-data thead td
+{
+    width: 14rem;
+}
+
+
+.users-data tr:first-child
+{
+    font-size: 1.5rem;
+    font-weight: 600;
+    background-color: var(--main);
+}
+
+.users-data tr:not(:first-child)
+{
+    background-color: var(--secondary);
+}
+
+.users-data td
+{
+    height: 2rem;
+    width: 14rem;
+}
+
+.users-data .last-update
+{
+    background-color: var(--main);
+}
+
+@media only screen and (max-width: 800px) 
+{
+    .container
+    {
+        width: 46rem;
+        height: 62rem;
+        margin: 1rem auto;
+    }
+    .form
+    {   
+        padding-top: 2rem;
+    }
+
+    h1
+    {
+        font-size: 3rem;
+        color: var(--main);
+        padding-top: 2rem;
+    }
+
+    .text-input
+    {
+        margin: 1rem auto;
+        width: 15rem;
+        padding: 0 1rem;
+        height: 2rem;
+    }
+
+    .btn
+    {
+        margin-top: 1.5rem;
+        width: 11rem;
+        height: 2rem;
+    }
+
+    .logout 
+    {
+        margin-top: 0;
+    }
+
+    .users-data
+    {
+        max-width: 95%;
+    }
+    
+    tbody 
+    {
+        height: 43rem;
+    }
+}
+
+
+
+@media only screen and (max-width: 600px) 
+{
+    .container
+    {
+        width: 25rem;
+        height: 44rem;
+        margin: 1rem auto;
+    }
+
+    .form
+    {   
+        padding-top: 2rem;
+    }
+
+    h1
+    {
+        font-size: 3rem;
+        color: var(--main);
+        padding-top: 2rem;
+    }
+
+    .text-input
+    {
+        margin: 1rem auto;
+        width: 15rem;
+        padding: 0 1rem;
+        height: 2rem;
+    }
+
+    .btn
+    {
+        margin-top: 1.5rem;
+        width: 11rem;
+        height: 2rem;
+    }
+
+    .logout 
+    {
+        margin-top: 0;
+    }
+
+    .users-data
+    {
+        max-width: 95%;
+    }
+    
+    tbody 
+    {
+        height: 26rem;
+    }
+
+    .users-data thead td
+    {
+        font-size: 1rem;
+        height: 2rem;
+        width: 14rem;
+    }
+
+    .users-data tbody td
+    {
+        font-size: 0.7rem;
+        height: 2rem;
+        width: 14rem;
+    }
+}
+
+@media only screen and (max-width: 400px) 
+{
+    .container
+    {
+        width: 21rem;
+    }
+}
