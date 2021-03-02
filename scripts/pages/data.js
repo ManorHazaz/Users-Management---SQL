@@ -13,8 +13,8 @@ delete json.action;
 let promise = establishRequest(action,json);
 
 // values to print in the table
-let fieldsName = ['Name', 'Email', 'Created-at'];
-let fieldsToPrint = ['username', 'useremail', 'usercreatedat'];
+let fieldsName = ['Name', 'Created-at', 'Email' ];
+let fieldsToPrint = ['username', 'usercreatedat', 'useremail'];
 
 // promise to table
 printPromiseToTable( promise, fieldsName, fieldsToPrint, '.data-container' );
