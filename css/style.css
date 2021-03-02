@@ -122,7 +122,8 @@ a
 
 .login-form
 {
-    height: 75%;
+    height: 60vh;
+    min-height: 330px;
 }
 
 /* register page */
@@ -130,6 +131,7 @@ a
 .register-form
 {
     height: 95%;
+    min-height: 400px;
 }
 
 /* data page */
@@ -195,7 +197,7 @@ a
     .form
     {
         width: 100%;
-        height: 50%;
+        height: 50vh;
     }
 
     .side-img
@@ -215,7 +217,7 @@ a
     
     .register-form
     {
-        height: 65%;
+        height: 65vh;
     }
 
     /* data page */
